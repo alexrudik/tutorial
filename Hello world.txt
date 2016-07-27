@@ -1,4 +1,0 @@
-﻿print("Hello!");
-//Не корректно
-print("Fuck off, please.");
-//так сойдет?
