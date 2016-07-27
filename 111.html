@@ -1,0 +1,29 @@
+﻿<meta charset="utf-8">
+<script>
+var arr = [];
+var rounds = 20;
+var k = 0;
+var i = 0;
+var b = 0;
+for(i=0; i<=rounds ; i++){
+	arr.push(Math.round(Math.random() * 2 - 1));
+}
+
+alert(arr);
+
+for(i=0; i<arr.length; i++){
+
+	if (arr[i] == -1){
+		k++
+	}
+	
+	if (k > b){
+		b = k ;
+	}
+	else{
+		k = 0;
+	}
+} 
+
+alert('Максимальное кол-во повторений '+ b +' красного числа -1');
+</script>
