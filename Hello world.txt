@@ -1,3 +1,4 @@
-print("Hello!");
+﻿print("Hello!");
 //Не корректно
-print("Fuck off!");
+print("Fuck off, please.");
+//так сойдет?
