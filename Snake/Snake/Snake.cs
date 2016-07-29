@@ -82,7 +82,7 @@ namespace Snake
             foreach (Mouse m in mouse)
                 if (m.x == x && m.y == y)
                 {
-                    body.Add(new Point(x, y, PointClass.SnakePoint));
+                    body.Add(new Point(body[body.Count - 1].x, body[body.Count - 1].y, PointClass.SnakePoint));
                     m.Clear();
                     mouse.Remove(m);
                     return true;
