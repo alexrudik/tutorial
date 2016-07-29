@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Snake
 {
+    
     class Program
     {
         static void Main(string[] args)
@@ -13,9 +14,13 @@ namespace Snake
             Field f = new Field();
             Snake sn = new Snake();
 
-            f.Draw();
+            Console.SetBufferSize(80, 25);
+
+            f.SetBorder();
             f.NewMouse();
-            sn.SetPosition(f.Whith / 2, f.Lenght / 2);
+            f.Draw();
+
+            sn.SetPosition(f.Width / 2, f.Height / 2);
 
             while (!sn.Hit())
             {
