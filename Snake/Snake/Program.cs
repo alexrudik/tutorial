@@ -15,32 +15,54 @@ namespace Snake
             Snake sn = new Snake();
 
             Console.SetBufferSize(80, 25);
+            Console.CursorVisible = false;
+            Console.Title = "Змейка. Консольная версия";
 
-            f.SetBorder();
-            f.NewMouse();
-            f.Draw();
-
-            sn.SetPosition(f.Width / 2, f.Height / 2);
-
-            while (!sn.Hit())
+            while (!sn.BorderHit(f.GetBorder()))
             {
-                sn.Move(GetDirection());
-                sn.Draw();
-
+                sn.Move(GetDirection(sn.CurrentDir()));
                 if (sn.MouseHit(f.GetMouse())) f.NewMouse();
-
                 Pause(300);
             }
+
+            Console.ResetColor();
+            Console.Clear();
+            Console.WriteLine("Игра окончена. Нажимте \"Ввод\"");
+            Console.ReadLine();
         }
 
-        private static void Pause(int v)
+        private static void Pause(int ms)
         {
-            throw new NotImplementedException();
+            System.Threading.Thread.Sleep(ms);
         }
 
-        private static object GetDirection()
+        private static Direction GetDirection(Direction dir)
         {
-            throw new NotImplementedException();
+            ConsoleKeyInfo key;
+
+            if (Console.KeyAvailable)
+            {
+                key = Console.ReadKey(false);
+                switch (key.Key)
+                {
+                    case ConsoleKey.UpArrow:
+                        dir = Direction.UP;
+                        break;
+                    case ConsoleKey.DownArrow:
+                        dir = Direction.DOWN;
+                        break;
+                    case ConsoleKey.LeftArrow:
+                        dir = Direction.LEFT;
+                        break;
+                    case ConsoleKey.RightArrow:
+                        dir = Direction.RIGHT;
+                        break;
+
+                }
+                while (Console.KeyAvailable) key = Console.ReadKey(false);
+            }
+
+            return dir;
         }
     }
 }

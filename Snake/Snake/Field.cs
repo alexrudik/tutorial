@@ -16,6 +16,14 @@ namespace Snake
         {
             Width = Console.WindowWidth - 1;
             Height = Console.WindowHeight;
+            SetBorder();
+            NewMouse();
+            Draw();
+        }
+
+        internal List<Point> GetBorder()
+        {
+            return Border;
         }
 
         internal void Draw()
@@ -27,13 +35,13 @@ namespace Snake
         internal void NewMouse()
         {
             Random rnd = new Random();
-           
             mouse.Add(new Mouse(rnd.Next(2, 77), rnd.Next(2, 22)));
+            Draw();
         }
 
-        internal object GetMouse()
+        internal List<Mouse> GetMouse()
         {
-            throw new NotImplementedException();
+            return mouse;
         }
 
         internal void SetBorder()
