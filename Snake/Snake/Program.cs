@@ -27,7 +27,7 @@ namespace Snake
                 sn.Move(GetDirection());
                 sn.Draw();
 
-                if (sn.MouseHit(f.Mouse())) f.NewMouse();
+                if (sn.MouseHit(f.GetMouse())) f.NewMouse();
 
                 Pause(300);
             }

@@ -10,6 +10,7 @@ namespace Snake
 
 
         List<Point> Border = new List<Point>();
+        List<Mouse> mouse = new List<Mouse>();
 
         public Field()
         {
@@ -20,11 +21,19 @@ namespace Snake
         internal void Draw()
         {
             foreach (Point p in Border) p.Draw();
+            foreach (Mouse m in mouse) m.Draw();
         }
 
         internal void NewMouse()
         {
-            //throw new NotImplementedException();
+            Random rnd = new Random();
+           
+            mouse.Add(new Mouse(rnd.Next(2, 77), rnd.Next(2, 22)));
+        }
+
+        internal object GetMouse()
+        {
+            throw new NotImplementedException();
         }
 
         internal void SetBorder()
@@ -34,15 +43,12 @@ namespace Snake
                 {
                     if (x == 0 || x == Width-1 || y == 0 || y == Height-1)
                     {
-                        Point b = new Point(x, y, PointClass.BorderPoint);
-                        Border.Add(b);
+                        //Point b = new Point(x, y, PointClass.BorderPoint);
+                        Border.Add(new Point(x, y, PointClass.BorderPoint));
                     }
                 }
         }
 
-        internal object Mouse()
-        {
-            throw new NotImplementedException();
-        }
     }
+
 }
